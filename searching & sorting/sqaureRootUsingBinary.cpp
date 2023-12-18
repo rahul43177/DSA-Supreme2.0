@@ -35,6 +35,17 @@ int main() {
 
     int ans = findSqrt(n);
     cout << "The ans is "<<ans<<endl;
+    int precision;
+    cout << "enter the precise floating digit \n";
+    cin >> precision;
+
+    double step = 0.1;
+    for(int i = 0;i<precision;i++) {
+       for(double j = ans;j*j<n;j = j+step) {
+        ans = j;
+        
+       } 
+    }
 }
 
-
+ 
