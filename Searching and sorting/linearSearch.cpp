@@ -39,10 +39,10 @@ string linearSearch(vector<int> arr , int target) {
 }
 
 int main() {
-
-vector<int> arr= {1,2,3,4,5,6,7};
-int target = 11;
-
-string result = linearSearch(arr , target);
-cout << result;
+    vector<int> arr = {1,2,3,4,5,6,7};
+    int target = 5;
+    cout << "The target is "<< target << endl;
+    string result = linearSearch(arr, target);
+    if(result == true) cout << "Found";
+    else cout << "not found";
 }
