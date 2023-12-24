@@ -43,6 +43,6 @@ int main() {
     int target = 5;
     cout << "The target is "<< target << endl;
     string result = linearSearch(arr, target);
-    if(result == true) cout << "Found";
-    else cout << "not found";
+    cout << result << endl;
+
 }
