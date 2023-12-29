@@ -1,44 +1,39 @@
-#include <iostream>
-#include <vector>
+//pair sum problem - gfg 
+//algo - two pointer 
+
+#include<iostream>
+#include<vector>
+#include<algorithm>
+
 using namespace std;
 
-void print(vector<int> &arr)
-{
-    for (int i = 0; i < arr.size(); i++)
-    {
-        cout << arr[i] << " ";
-    }
-}
 
-void sortColor(vector<int> &arr)
-{
+bool pairSum(vector<int>&arr , int target) {
+    //we need to sort the array 
+    sort(arr.begin() , arr.end());
     int size = arr.size();
-    int left = 0;
-    int right = size - 1;
-    int i = 0;
-    while (i <= right)
-    {
-        if (arr[i] == 0)
-        {
-            swap(arr[i], arr[left]);
-            left++;
-            i++;
-        }
-        else if (arr[i] == 2)
-        {
-            swap(arr[i], arr[right]);
-            right--;
-        }
-        else
-        {
-            i++;
+    int low = 0;
+    int high = size-1;
+
+    while(low <=high) {
+        int sum = arr[low] + arr[high];
+        if(sum == target) {
+            return true;
+        } else if(sum < target) {
+            low++;
+        } else {
+            high--;
         }
     }
+    return false;
 }
 
-int main()
-{
-    vector<int> arr = {0, 0, 01, 2, 1, 2};
-    sortColor(arr);
-    print(arr);
+int main() {
+    vector<int> arr= {1,10,23,45,4,34};
+    int target = 33;
+
+    bool result = pairSum(arr , target);
+
+    if(result) cout << "We have found the pairs";
+    else cout<< "We have not found the pair";
 }
