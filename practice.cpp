@@ -1,39 +1,44 @@
-//pair sum problem - gfg 
-//algo - two pointer 
-
 #include<iostream>
 #include<vector>
-#include<algorithm>
-
 using namespace std;
 
-
-bool pairSum(vector<int>&arr , int target) {
-    //we need to sort the array 
-    sort(arr.begin() , arr.end());
+void sortColor(vector<int> &arr) {
     int size = arr.size();
-    int low = 0;
-    int high = size-1;
+    int left = 0;
+    int right = size -1;
+    int i = 0; //index - traversing of array
 
-    while(low <=high) {
-        int sum = arr[low] + arr[high];
-        if(sum == target) {
-            return true;
-        } else if(sum < target) {
-            low++;
+    while(i <= right) {
+        if(arr[i] == 0) {
+            swap(arr[i] , arr[left]);
+            left++;
+            i++;
+        } else if(arr[i] == 2) {
+            swap(arr[i] , arr[right]);
+            right--;
         } else {
-            high--;
+            i++;
         }
     }
-    return false;
+}
+
+
+void print(vector<int> arr) {
+    int size = arr.size();
+    int i = 0;
+    while(i<size) {
+        cout << arr[i] << " ";
+        i++;
+    }
 }
 
 int main() {
-    vector<int> arr= {1,10,23,45,4,34};
-    int target = 33;
+    vector<int> arr= {0,0,2,0,1,1,0,2,0,2,1,0,2,1,0};
 
-    bool result = pairSum(arr , target);
+    sortColor(arr);
+    print(arr);
+    
+    return 0;
 
-    if(result) cout << "We have found the pairs";
-    else cout<< "We have not found the pair";
+
 }
