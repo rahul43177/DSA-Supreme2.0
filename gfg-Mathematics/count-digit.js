@@ -10,3 +10,5 @@ const countDigit = (number) => {
 let num = 123456
 
 console.log(countDigit(num))
+
+
