@@ -1,14 +1,14 @@
-const countDigit = (number) => {
-    let count = 0;
-    while(number > 0) {
-        number = Math.floor(number/10)
-        count++;
-    }
-    return count;
+const countDigits = (number) => {
+  let count = 0;
+  while(number > 0) {
+    count++;
+    number = Math.floor(number/10);
+  }
+  return count;
 }
 
-let num = 123456
+let n= 12345678910;
+let counter = countDigits(n);
 
-console.log(countDigit(num))
 
-
+console.log("The number of digits " + n + " has are "+ counter);

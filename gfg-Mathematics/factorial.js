@@ -1,11 +1,9 @@
-const findFact = (number) => {
-  if(number ==0) return 1;
+const findFactorial = (number) => {
+  if(number == 0) return 1;
 
-  return number * findFact(number-1);
+  return number * findFactorial(number-1);
 }
 
-
-let number = 4;
-let factorial = findFact(number);
-console.log(factorial);
-
+let n = 10;
+let fact = findFactorial(n);
+console.log(`The factorial of number ${n} is ${fact}`)
